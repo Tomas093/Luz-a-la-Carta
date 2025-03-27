@@ -2,9 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/landingPageStyle.css">
+    <title>Smart Curtain Lifter - Login</title>
 </head>
 <body>
+<div class="login-container">
+    <div class="login-wrapper">
+        <h1>Smart Curtain Control</h1>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
 
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="login-btn">Log In</button>
+            </div>
+        </form>
+
+        <div class="signup-link">
+            <p>Don't have an account? <a href="#">Sign Up</a></p>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>

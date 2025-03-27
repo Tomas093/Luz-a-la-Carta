@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 430px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.app-header {
+    background-color: #1d3d6e;
+    color: white;
+    padding: 20px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.location-name {
+    font-size: 16px;
+}
+
+.temperature {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.temp-range, .humidity {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.weather-icon {
+    font-size: 40px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.devices-section h2 {
+    margin-bottom: 15px;
+}
+
+.devices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.device-card, .add-device-card {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.device-card {
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.add-device-card {
+    justify-content: center;
+}
+
+.add-device-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.home-preview {
+    margin-top: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottom-navigation {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 10px 0;
+    border-top: 1px solid #e0e0e0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.5;
+}
+
+.nav-item.active {
+    opacity: 1;
+    color: #1d3d6e;
+}
+
+.nav-item span {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.nav-item label {
+    font-size: 12px;
+}
