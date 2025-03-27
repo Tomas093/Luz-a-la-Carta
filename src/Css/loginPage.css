@@ -74,7 +74,7 @@ body {
     background-color: #2980b9;
 }
 
-.signup-link {
+.up-link {
     margin-top: 20px;
     text-align: center;
 }
@@ -82,7 +82,7 @@ body {
 .signup-link a {
     color: #3498db;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 50px;
 }
 
 @media screen and (max-width: 480px) {
