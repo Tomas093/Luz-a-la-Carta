@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+.sky-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000428, #004e92);
+    transition: background 4s ease-in-out;
+}
+
+.sunrise .sky {
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffafbd);
+}
+
+.sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff9a00, #ff7400);
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 60px #ff7400;
+    transition: bottom 5s ease-in-out, box-shadow 5s ease-in-out;
+    z-index: 1;
+}
+
+.sunrise .sun {
+    bottom: 75%;
+    box-shadow: 0 0 100px #ff7400, 0 0 200px rgba(255, 116, 0, 0.4);
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: 0;
+    transition: opacity 3s ease-in-out, transform 25s linear;
+}
+
+.cloud1 {
+    width: 200px;
+    height: 60px;
+    top: 20%;
+    left: -200px;
+}
+
+.cloud2 {
+    width: 160px;
+    height: 40px;
+    top: 30%;
+    left: -160px;
+}
+
+.cloud3 {
+    width: 180px;
+    height: 50px;
+    top: 15%;
+    left: -180px;
+}
+
+.sunrise .cloud {
+    opacity: 0.8;
+}
+
+.sunrise .cloud1 {
+    transform: translateX(calc(100vw + 200px));
+}
+
+.sunrise .cloud2 {
+    transform: translateX(calc(100vw + 160px));
+    transition-delay: 2s;
+}
+
+.sunrise .cloud3 {
+    transform: translateX(calc(100vw + 180px));
+    transition-delay: 4s;
+}
+
+.curtain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-image: 
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.05)),
+        repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0, 0, 0, 0.02) 4px, rgba(0, 0, 0, 0.02) 5px);
+    transform-origin: top center;
+}
+
+.partial-open .curtain {
+    transform: translateY(-50%); /* Only open halfway to reveal form */
+}
+
+.rope {
+    position: absolute;
+    width: 5px;
+    height: 0;
+    background-color: #8B4513;
+    bottom: 0;
+    left: 80px;
+    transform-origin: bottom center;
+    z-index: 11;
+    transition: height 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pull-rope .rope {
+    height: 50vh; /* Rope extends to half the screen height */
+}
+
+.signup-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    padding: 40px;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-container:hover {
+    transform: translate(-50%, -52%);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.curtain-lifted .signup-container {
+    opacity: 1;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.signup-form h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 28px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-group input:focus {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+}
+
+button {
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(67, 206, 162, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.login-link {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #43cea2;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Stickman styles */
+.stickman-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 15;
+    cursor: pointer;
+}
+
+.stickman {
+    position: relative;
+    width: 100px;
+    height: 120px;
+}
+
+.head {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: black;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.body {
+    position: absolute;
+    width: 4px;
+    height: 50px;
+    background-color: black;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.left-arm, .right-arm {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background-color: black;
+    top: 40px;
+    left: 50%;
+    transform-origin: left center;
+}
+
+.left-arm {
+    transform: translateX(-50%) rotate(-30deg);
+}
+
+.right-arm {
+    transform: translateX(-50%) rotate(30deg);
+    transition: transform 0.5s ease;
+}
+
+.left-leg, .right-leg {
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background-color: black;
+    top: 80px;
+    left: 50%;
+    transform-origin: left center;
+}
+
+.left-leg {
+    transform: translateX(-50%) rotate(30deg);
+}
+
+.right-leg {
+    transform: translateX(-50%) rotate(-30deg);
+}
+
+.pull-arm {
+    transform: translateX(-50%) rotate(90deg);
+}
+
+.stickman.pulling .right-arm {
+    transform: translateX(-50%) rotate(150deg);
+}
+
+.stickman.returning .right-arm {
+    transform: translateX(-50%) rotate(30deg);
+}
