@@ -1,40 +1,49 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Blinds Login Animation</title>
-    <link rel="stylesheet" href="../Css/LoginStyle.css">
-</head>
-<body>
-    <!-- Sky and Sun Background -->
-    <div class="sky-container">
-        <div class="sky"></div>
-        <div class="sun"></div>
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-    </div>
-    
-    <!-- Login Form -->
-    <div class="login-container">
-        <div class="login-form">
-            <h2>Welcome</h2>
-            <div class="input-group">
-                <input type="text" placeholder="Username">
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Password">
-            </div>
-            <button>Sign In</button>
-        </div>
-    </div>
-    
-    <!-- Curtain -->
-    <div class="curtain-container">
-        <div class="curtain"></div>
-    </div>
+import React, { useEffect, useState } from 'react';
+import './LoginStyle.css'; // Asegúrate de tener este archivo en la misma carpeta
 
-    <script src="../JavaScript/LoginScript.js"></script>
-</body>
-</html>
+function Login() {
+  const [curtainLifted, setCurtainLifted] = useState(false);
+
+  useEffect(() => {
+    // Efecto similar al que tendrías en LoginScript.js
+    const timer = setTimeout(() => {
+      setCurtainLifted(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <div className="login-page">
+      {/* Sky and Sun Background */}
+      <div className={`sky-container ${curtainLifted ? 'sunrise' : ''}`}>
+        <div className="sky"></div>
+        <div className="sun"></div>
+        <div className="cloud cloud1"></div>
+        <div className="cloud cloud2"></div>
+        <div className="cloud cloud3"></div>
+      </div>
+      
+      {/* Login Form */}
+      <div className="login-container">
+        <div className="login-form">
+          <h2>Welcome</h2>
+          <div className="input-group">
+            <input type="email" placeholder="Email" />
+          </div>
+          <div className="input-group">
+            <input type="password" placeholder="Password" />
+          </div>
+          <button>Sign In</button>
+        </div>
+      </div>
+      
+      {/* Curtain */}
+      <div className={`curtain-container ${curtainLifted ? 'curtain-open' : ''}`}>
+        <div className="curtain"></div>
+      </div>
+    </div>
+  );
+}
+
+export default Login;

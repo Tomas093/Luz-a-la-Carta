@@ -1,337 +1,415 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: relative;
-}
+ /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.sky-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      background-color: #000428;
+    }
 
-.sky {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, #000428, #004e92);
-    transition: background 4s ease-in-out;
-}
+    .sky-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
 
-.sunrise .sky {
-    background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffafbd);
-}
+    .sky {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #000428, #004e92);
+      transition: background 4s ease-in-out;
+    }
 
-.sun {
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ff9a00, #ff7400);
-    bottom: -250px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 60px #ff7400;
-    transition: bottom 5s ease-in-out, box-shadow 5s ease-in-out;
-    z-index: 1;
-}
+    .sunrise .sky {
+      background: linear-gradient(to bottom, #2980b9, #6dd5fa, #ffafbd);
+    }
 
-.sunrise .sun {
-    bottom: 75%;
-    box-shadow: 0 0 100px #ff7400, 0 0 200px rgba(255, 116, 0, 0.4);
-}
+    .sun {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff9a00, #ff7400);
+      bottom: -250px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 60px #ff7400;
+      transition: bottom 5s ease-in-out, box-shadow 5s ease-in-out;
+      z-index: 1;
+    }
 
-.cloud {
-    position: absolute;
-    background: white;
-    border-radius: 100px;
-    opacity: 0;
-    transition: opacity 3s ease-in-out, transform 25s linear;
-}
+    .sunrise .sun {
+      bottom: 75%;
+      box-shadow: 0 0 100px #ff7400, 0 0 200px rgba(255, 116, 0, 0.4);
+    }
 
-.cloud1 {
-    width: 200px;
-    height: 60px;
-    top: 20%;
-    left: -200px;
-}
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 100px;
+      opacity: 0;
+      transition: opacity 3s ease-in-out, transform 25s linear;
+    }
 
-.cloud2 {
-    width: 160px;
-    height: 40px;
-    top: 30%;
-    left: -160px;
-}
+    .cloud1 {
+      width: 200px;
+      height: 60px;
+      top: 20%;
+      left: -200px;
+    }
 
-.cloud3 {
-    width: 180px;
-    height: 50px;
-    top: 15%;
-    left: -180px;
-}
+    .cloud2 {
+      width: 160px;
+      height: 40px;
+      top: 30%;
+      left: -160px;
+    }
 
-.sunrise .cloud {
-    opacity: 0.8;
-}
+    .cloud3 {
+      width: 180px;
+      height: 50px;
+      top: 15%;
+      left: -180px;
+    }
 
-.sunrise .cloud1 {
-    transform: translateX(calc(100vw + 200px));
-}
+    .sunrise .cloud {
+      opacity: 0.8;
+    }
 
-.sunrise .cloud2 {
-    transform: translateX(calc(100vw + 160px));
-    transition-delay: 2s;
-}
+    .sunrise .cloud1 {
+      transform: translateX(calc(100vw + 200px));
+    }
 
-.sunrise .cloud3 {
-    transform: translateX(calc(100vw + 180px));
-    transition-delay: 4s;
-}
+    .sunrise .cloud2 {
+      transform: translateX(calc(100vw + 160px));
+      transition-delay: 2s;
+    }
 
-.curtain-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    pointer-events: none;
-    overflow: hidden;
-}
+    .sunrise .cloud3 {
+      transform: translateX(calc(100vw + 180px));
+      transition-delay: 4s;
+    }
 
-.curtain {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.85);
-    transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    background-image: 
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.05)),
-        repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0, 0, 0, 0.02) 4px, rgba(0, 0, 0, 0.02) 5px);
-    transform-origin: top center;
-}
+    .curtain-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      overflow: hidden;
+    }
 
-.partial-open .curtain {
-    transform: translateY(-50%); /* Only open halfway to reveal form */
-}
+    .curtain {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.85);
+      transition: transform 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      background-image: 
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.05)),
+          repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(0, 0, 0, 0.02) 4px, rgba(0, 0, 0, 0.02) 5px);
+      transform-origin: top center;
+    }
 
-.rope {
-    position: absolute;
-    width: 5px;
-    height: 0;
-    background-color: #8B4513;
-    bottom: 0;
-    left: 80px;
-    transform-origin: bottom center;
-    z-index: 11;
-    transition: height 2.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
+    .curtain-open .curtain {
+      transform: translateY(-100%);
+    }
 
-.pull-rope .rope {
-    height: 50vh; /* Rope extends to half the screen height */
-}
+    .rope {
+      position: absolute;
+      width: 3px;
+      height: 100%;
+      background-color: #8B4513;
+      bottom: 0;
+      left: 100px;
+      transform-origin: bottom center;
+      z-index: 11;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-.signup-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    background-color: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-    padding: 40px;
-    opacity: 0;
-    transition: opacity 2s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .signup-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 2s ease-in-out, transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.signup-container:hover {
-    transform: translate(-50%, -52%);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
+    .signup-container:hover {
+      transform: translate(-50%, -52%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
 
-.curtain-lifted .signup-container {
-    opacity: 1;
-}
+    .curtain-lifted .signup-container {
+      opacity: 1;
+    }
 
-.signup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
 
-.signup-form h2 {
-    color: white;
-    text-align: center;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 28px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+    .signup-form h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 28px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
 
-.input-group {
-    position: relative;
-}
+    .input-group {
+      position: relative;
+    }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    color: white;
-    outline: none;
-    transition: all 0.3s;
-}
+    .input-group input {
+      width: 100%;
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      color: white;
+      outline: none;
+      transition: all 0.3s;
+    }
 
-.input-group input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
+    .input-group input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
 
-.input-group input:focus {
-    background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
-}
+    .input-group input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
+    }
 
-button {
-    background: linear-gradient(to right, #43cea2, #185a9d);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    margin-top: 10px;
-}
+    button {
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+    }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(67, 206, 162, 0.4);
-}
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(67, 206, 162, 0.4);
+    }
 
-button:active {
-    transform: translateY(0);
-}
+    button:active {
+      transform: translateY(0);
+    }
 
-.login-link {
-    text-align: center;
-    color: white;
-    font-size: 14px;
-}
+    .login-link {
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
 
-.login-link a {
-    color: #43cea2;
-    text-decoration: none;
-    font-weight: 600;
-}
+    .login-link a {
+      color: #43cea2;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-.login-link a:hover {
-    text-decoration: underline;
-}
+    .login-link a:hover {
+      text-decoration: underline;
+    }
 
-/* Stickman styles */
-.stickman-container {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    z-index: 15;
-    cursor: pointer;
-}
+    .stickman-container {
+      position: absolute;
+      bottom: 20px;
+      left: 133px;
+      z-index: 15;
+      transform: scale(0.7);
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
 
-.stickman {
-    position: relative;
-    width: 100px;
-    height: 120px;
-}
+    .stickman {
+      position: relative;
+      width: 10px;
+    }
 
-.head {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: black;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    .head {
+      width: 40px;
+      height: 40px;
+      background: black;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-left: -15px;
+      margin-bottom: -5px;
+      z-index: 1;
+    }
 
-.body {
-    position: absolute;
-    width: 4px;
-    height: 50px;
-    background-color: black;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+    .body {
+      width: 10px;
+      height: 80px;
+      background: black;
+      margin: 0 auto;
+      position: relative;
+      z-index: 0;
+    }
 
-.left-arm, .right-arm {
-    position: absolute;
-    width: 40px;
-    height: 4px;
-    background-color: black;
-    top: 40px;
-    left: 50%;
-    transform-origin: left center;
-}
+    .leg {
+      width: 10px;
+      height: 60px;
+      background: black;
+      position: absolute;
+      bottom: -60px;
+    }
 
-.left-arm {
-    transform: translateX(-50%) rotate(-30deg);
-}
+    .leg.left {
+      transform: rotate(20deg);
+      left: -10px;
+    }
 
-.right-arm {
-    transform: translateX(-50%) rotate(30deg);
-    transition: transform 0.5s ease;
-}
+    .leg.right {
+      transform: rotate(-20deg);
+      right: -10px;
+    }
 
-.left-leg, .right-leg {
-    position: absolute;
-    width: 40px;
-    height: 4px;
-    background-color: black;
-    top: 80px;
-    left: 50%;
-    transform-origin: left center;
-}
+    .arm {
+      width: 60px;
+      height: 10px;
+      background: black;
+      position: absolute;
+      top: 50px;
+      left: -60px;
+      transform-origin: right center;
+    }
 
-.left-leg {
-    transform: translateX(-50%) rotate(30deg);
-}
+    /* Pre-existing arm rotation classes from 35° down to 15° */
+    .arms-35 .left-arm { transform: rotate(-35deg); }
+    .arms-35 .right-arm { transform: rotate(35deg); }
+    .arms-34 .left-arm { transform: rotate(-34deg); }
+    .arms-34 .right-arm { transform: rotate(34deg); }
+    .arms-33 .left-arm { transform: rotate(-33deg); }
+    .arms-33 .right-arm { transform: rotate(33deg); }
+    .arms-32 .left-arm { transform: rotate(-32deg); }
+    .arms-32 .right-arm { transform: rotate(32deg); }
+    .arms-31 .left-arm { transform: rotate(-31deg); }
+    .arms-31 .right-arm { transform: rotate(31deg); }
+    .arms-30 .left-arm { transform: rotate(-30deg); }
+    .arms-30 .right-arm { transform: rotate(30deg); }
+    .arms-29 .left-arm { transform: rotate(-29deg); }
+    .arms-29 .right-arm { transform: rotate(29deg); }
+    .arms-28 .left-arm { transform: rotate(-28deg); }
+    .arms-28 .right-arm { transform: rotate(28deg); }
+    .arms-27 .left-arm { transform: rotate(-27deg); }
+    .arms-27 .right-arm { transform: rotate(27deg); }
+    .arms-26 .left-arm { transform: rotate(-26deg); }
+    .arms-26 .right-arm { transform: rotate(26deg); }
+    .arms-25 .left-arm { transform: rotate(-25deg); }
+    .arms-25 .right-arm { transform: rotate(25deg); }
+    .arms-24 .left-arm { transform: rotate(-24deg); }
+    .arms-24 .right-arm { transform: rotate(24deg); }
+    .arms-23 .left-arm { transform: rotate(-23deg); }
+    .arms-23 .right-arm { transform: rotate(23deg); }
+    .arms-22 .left-arm { transform: rotate(-22deg); }
+    .arms-22 .right-arm { transform: rotate(22deg); }
+    .arms-21 .left-arm { transform: rotate(-21deg); }
+    .arms-21 .right-arm { transform: rotate(21deg); }
+    .arms-20 .left-arm { transform: rotate(-20deg); }
+    .arms-20 .right-arm { transform: rotate(20deg); }
+    .arms-19 .left-arm { transform: rotate(-19deg); }
+    .arms-19 .right-arm { transform: rotate(19deg); }
+    .arms-18 .left-arm { transform: rotate(-18deg); }
+    .arms-18 .right-arm { transform: rotate(18deg); }
+    .arms-17 .left-arm { transform: rotate(-17deg); }
+    .arms-17 .right-arm { transform: rotate(17deg); }
+    .arms-16 .left-arm { transform: rotate(-16deg); }
+    .arms-16 .right-arm { transform: rotate(16deg); }
+    .arms-15 .left-arm { transform: rotate(-15deg); }
+    .arms-15 .right-arm { transform: rotate(15deg); }
 
-.right-leg {
-    transform: translateX(-50%) rotate(-30deg);
-}
+    /* New CSS rules for angles 14 down to 0 */
+    .arms-14 .left-arm { transform: rotate(-14deg); }
+    .arms-14 .right-arm { transform: rotate(14deg); }
+    .arms-13 .left-arm { transform: rotate(-13deg); }
+    .arms-13 .right-arm { transform: rotate(13deg); }
+    .arms-12 .left-arm { transform: rotate(-12deg); }
+    .arms-12 .right-arm { transform: rotate(12deg); }
+    .arms-11 .left-arm { transform: rotate(-11deg); }
+    .arms-11 .right-arm { transform: rotate(11deg); }
+    .arms-10 .left-arm { transform: rotate(-10deg); }
+    .arms-10 .right-arm { transform: rotate(10deg); }
+    .arms-9 .left-arm { transform: rotate(-9deg); }
+    .arms-9 .right-arm { transform: rotate(9deg); }
+    .arms-8 .left-arm { transform: rotate(-8deg); }
+    .arms-8 .right-arm { transform: rotate(8deg); }
+    .arms-7 .left-arm { transform: rotate(-7deg); }
+    .arms-7 .right-arm { transform: rotate(7deg); }
+    .arms-6 .left-arm { transform: rotate(-6deg); }
+    .arms-6 .right-arm { transform: rotate(6deg); }
+    .arms-5 .left-arm { transform: rotate(-5deg); }
+    .arms-5 .right-arm { transform: rotate(5deg); }
+    .arms-4 .left-arm { transform: rotate(-4deg); }
+    .arms-4 .right-arm { transform: rotate(4deg); }
+    .arms-3 .left-arm { transform: rotate(-3deg); }
+    .arms-3 .right-arm { transform: rotate(3deg); }
+    .arms-2 .left-arm { transform: rotate(-2deg); }
+    .arms-2 .right-arm { transform: rotate(2deg); }
+    .arms-1 .left-arm { transform: rotate(-1deg); }
+    .arms-1 .right-arm { transform: rotate(1deg); }
+    .arms-0 .left-arm { transform: rotate(0deg); }
+    .arms-0 .right-arm { transform: rotate(0deg); }
 
-.pull-arm {
-    transform: translateX(-50%) rotate(90deg);
-}
+    .arm-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
 
-.stickman.pulling .right-arm {
-    transform: translateX(-50%) rotate(150deg);
-}
+    .hidden {
+      display: none;
+    }
 
-.stickman.returning .right-arm {
-    transform: translateX(-50%) rotate(30deg);
-}
+    .hint-prompt {
+      position: absolute;
+      bottom: 120px;
+      left: 50px;
+      z-index: 1000;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 5px;
+      font-size: 14px;
+      color: #333;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
