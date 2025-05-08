@@ -1,269 +1,269 @@
+/* HomeStyle.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(to bottom, #1a3a7e 0%, #1a3a7e 40%, #e8eef5 40%, #e8eef5 100%);
-            min-height: 100vh;
-            padding: 0;
-            margin: 0;
-            color: #333;
-        }
-        
-        .header {
-            background-color: #1a3a7e;
-            padding: 20px;
-            color: white;
-            text-align: center;
-        }
-        
-        .logo {
-            width: 150px;
-            margin-bottom: 15px;
-        }
-        
-        .healthyhomes {
-            font-size: 28px;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-        
-        .healthy {
-            font-weight: normal;
-        }
-        
-        .homes {
-            font-weight: bold;
-            color: #3a9fff;
-        }
-        
-        .slogan {
-            font-size: 18px;
-            font-style: italic;
-            margin-top: 10px;
-            color: #e0e0e0;
-        }
-        
-        .location-card {
-            background-color: white;
-            border-radius: 15px;
-            margin: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .location-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .location-icon {
-            color: #333;
-            font-size: 20px;
-        }
-        
-        .location-name {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .temperature {
-            display: flex;
-            align-items: baseline;
-        }
-        
-        .current-temp {
-            font-size: 50px;
-            font-weight: bold;
-        }
-        
-        .temp-unit {
-            font-size: 24px;
-            margin-left: 5px;
-        }
-        
-        .weather-stats {
-            margin-top: 10px;
-        }
-        
-        .temp-range, .humidity {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        
-        .weather-icon {
-            width: 80px;
-            height: 80px;
-        }
-        
-        .weather-status {
-            text-align: center;
-            color: #777;
-        }
-        
-        .devices-title {
-            margin: 25px 20px 15px 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .devices-container {
-            display: flex;
-            gap: 15px;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-        
-        .device-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 20px;
-            flex: 1;
-            min-width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .device-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        
-        .device-name {
-            margin-top: 15px;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        
-        .device-status {
-            color: #999;
-            margin-top: 5px;
-        }
-        
-        .device-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-        
-        .home-icon {
-            color: #555;
-            font-size: 20px;
-        }
-        
-        .device-temp {
-            font-size: 18px;
-            color: #777;
-        }
-        
-        .add-device {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .add-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #0094ff;
-            color: white;
-            font-size: 30px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
-        
-        .add-text {
-            font-size: 18px;
-            color: #333;
-        }
-        
-        .home-preview {
-            margin: 30px 20px;
-            text-align: center;
-        }
-        
-        .home-preview img {
-            max-width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .navbar {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: white;
-            display: flex;
-            justify-content: space-around;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-        }
-        
-        .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: #777;
-            text-decoration: none;
-        }
-        
-        .nav-item.active {
-            color: #1a3a7e;
-        }
-        
-        .nav-icon {
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-        
-        .nav-text {
-            font-size: 14px;
-        }
-        
-        .auth-buttons {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .auth-button {
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .login-button {
-            background-color: transparent;
-            color: white;
-            border: 1px solid white;
-        }
-        
-        .signup-button {
-            background-color: #0094ff;
-            color: white;
-            border: none;
-        }
+body {
+    background: linear-gradient(to bottom, #1a3a7e 0%, #1a3a7e 40%, #e8eef5 40%, #e8eef5 100%);
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    color: #333;
+}
+
+.header {
+    background-color: #1a3a7e;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 15px;
+}
+
+.healthyhomes {
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.healthy {
+    font-weight: normal;
+}
+
+.homes {
+    font-weight: bold;
+    color: #3a9fff;
+}
+
+.slogan {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 10px;
+    color: #e0e0e0;
+}
+
+.location-card {
+    background-color: white;
+    border-radius: 15px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location-icon {
+    color: #333;
+    font-size: 20px;
+}
+
+.location-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.temperature {
+    display: flex;
+    align-items: baseline;
+}
+
+.current-temp {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.temp-unit {
+    font-size: 24px;
+    margin-left: 5px;
+}
+
+.weather-stats {
+    margin-top: 10px;
+}
+
+.temp-range, .humidity {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.weather-status {
+    text-align: center;
+    color: #777;
+}
+
+.devices-title {
+    margin: 25px 20px 15px 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.devices-container {
+    display: flex;
+    gap: 15px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.device-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.device-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.device-name {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.device-status {
+    color: #999;
+    margin-top: 5px;
+}
+
+.device-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.home-icon {
+    color: #555;
+    font-size: 20px;
+}
+
+.device-temp {
+    font-size: 18px;
+    color: #777;
+}
+
+.add-device {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0094ff;
+    color: white;
+    font-size: 30px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.add-text {
+    font-size: 18px;
+    color: #333;
+}
+
+.home-preview {
+    margin: 30px 20px;
+    text-align: center;
+}
+
+.home-preview img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #777;
+    text-decoration: none;
+}
+
+.nav-item.active {
+    color: #1a3a7e;
+}
+
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.nav-text {
+    font-size: 14px;
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.auth-button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.signup-button {
+    background-color: #0094ff;
+    color: white;
+    border: none;
+}
