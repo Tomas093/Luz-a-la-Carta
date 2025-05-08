@@ -1,13 +1,23 @@
 const express = require('express');
-const connectDB = require('./db'); // Asegúrate de tener la ruta correcta
+const pool = require('./db');
+require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Conectar a la base de datos PostgreSQL
-connectDB();
+app.use(express.json()); // Para parsear JSON
 
-// Aquí el resto de tu configuración de Express (rutas, middlewares, etc.)
+// Ruta de prueba para ver si se conecta a la base de datos
+app.get('/test-db', async (req, res) => {
+    try {
+        const result = await pool.query('SELECT NOW()');
+        res.json(result.rows[0]);
+    } catch (err) {
+        console.error('Error al conectarse a la base de datos:', err);
+        res.status(500).json({ error: 'Error al conectarse a la base de datos' });
+    }
+});
 
-app.listen(3000, () => {
-    console.log('Servidor corriendo en el puerto 3000');
+app.listen(PORT, () => {
+    console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
