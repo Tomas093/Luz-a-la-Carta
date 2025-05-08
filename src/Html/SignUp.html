@@ -1,206 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stickman Curtain Signup</title>
-  <link rel="stylesheet" href="../Css/SignUpStyle.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stickman Curtain Signup</title>
+    <link rel="stylesheet" href="../Css/SignUpStyle.css">
 </head>
 <body>
-  <!-- Sky, Sun, and Clouds -->
-  <div class="sky-container">
-    <div class="sky"></div>
-    <div class="sun"></div>
-    <div class="cloud cloud1"></div>
-    <div class="cloud cloud2"></div>
-    <div class="cloud cloud3"></div>
-  </div>
-
-  <!-- Signup Form -->
-  <div class="signup-container">
-    <div class="signup-form">
-      <h2>Create Account</h2>
-      <div class="input-group">
-        <input type="text" placeholder="Username">
-      </div>
-      <div class="input-group">
-        <input type="email" placeholder="Email">
-      </div>
-      <div class="input-group">
-        <input type="password" placeholder="Password">
-      </div>
-      <div class="input-group">
-        <input type="password" placeholder="Confirm Password">
-      </div>
-      <button>Sign Up</button>
-      <div class="login-link">
-        Already have an account? <a href="Login.html">Login</a>
-      </div>
+    <!-- Sky and Sun Background -->
+    <div class="sky-container">
+        <div class="sky"></div>
+        <div class="sun"></div>
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
     </div>
-  </div>
-
-  <!-- Curtain and Rope -->
-  <div class="curtain-container">
-    <div class="curtain"></div>
-    <div class="rope"></div>
-  </div>
-
-  <!-- Stickman (Head, Arms, Body, and Legs) -->
-  <div class="stickman-container">
-    <div class="stickman">
-      <div class="head"></div>
-      <!-- Arm elements for angles 35 down to 0 -->
-      <div class="arm-mask arms-35" id="arms35">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-34" id="arms34">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-33" id="arms33">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-32" id="arms32">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-31" id="arms31">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-30" id="arms30">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-29" id="arms29">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-28" id="arms28">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-27" id="arms27">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-26" id="arms26">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-25" id="arms25">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-24" id="arms24">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-23" id="arms23">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-22" id="arms22">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-21" id="arms21">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-20" id="arms20">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-19" id="arms19">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-18" id="arms18">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-17" id="arms17">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-16" id="arms16">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-15" id="arms15">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <!-- New arm elements for angles 14 to 0 -->
-      <div class="arm-mask arms-14" id="arms14">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-13" id="arms13">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-12" id="arms12">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-11" id="arms11">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-10" id="arms10">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-9" id="arms9">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-8" id="arms8">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-7" id="arms7">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-6" id="arms6">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-5" id="arms5">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-4" id="arms4">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-3" id="arms3">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-2" id="arms2">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-1" id="arms1">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="arm-mask arms-0" id="arms0">
-        <div class="arm left-arm"></div>
-        <div class="arm right-arm"></div>
-      </div>
-      <div class="body"></div>
-      <div class="leg left"></div>
-      <div class="leg right"></div>
+    
+    <!-- Signup Form -->
+    <div class="signup-container">
+        <div class="signup-form">
+            <h2>Create Account</h2>
+            <div class="input-group">
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password">
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Confirm Password">
+            </div>
+            <div class="input-group">
+                <input type="text" placeholder="Address">
+            </div>
+            <button>Sign Up</button>
+            <div class="login-link">
+                Already have an account? <a href="Login.html">Login</a>
+            </div>
+        </div>
     </div>
-  </div>
+    
+    <!-- Curtain -->
+    <div class="curtain-container">
+        <div class="curtain"></div>
+        <div class="rope"></div>
+    </div>
+    
+    <!-- Stickman -->
+    <div class="stickman-container">
+        <div class="stickman">
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="left-arm"></div>
+            <div class="right-arm pull-arm"></div>
+            <div class="left-leg"></div>
+            <div class="right-leg"></div>
+        </div>
+    </div>
 
-<script src="../JavaScript/SignUpScript.js"></script>
+    <script src="../JavaScript/SignupScript.js"></script>
 </body>
 </html>
