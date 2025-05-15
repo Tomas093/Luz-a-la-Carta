@@ -1,0 +1,101 @@
+Index: JavaScript/db.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/JavaScript/db.js b/JavaScript/db.js
+deleted file mode 100644
+--- a/JavaScript/db.js	(revision 6f5032340a269757ee504af8d507fcc68b392580)
++++ /dev/null	(revision 6f5032340a269757ee504af8d507fcc68b392580)
+@@ -1,18 +0,0 @@
+-const { Client } = require('pg');
+-require('dotenv').config();  // Asegúrate de cargar el archivo .env
+-
+-const connectDB = async () => {
+-  const client = new Client({
+-    connectionString: process.env.DATABASE_URL, // Usa la variable de entorno DATABASE_URL
+-  });
+-
+-  try {
+-    await client.connect();
+-    console.log('Conectado a PostgreSQL');
+-  } catch (error) {
+-    console.error(`Error: ${error.message}`);
+-    process.exit(1);
+-  }
+-};
+-
+-module.exports = connectDB;
+\ No newline at end of file
+Index: server/.env
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/.env b/server/.env
+new file mode 100644
+--- /dev/null	(date 1746718446181)
++++ b/server/.env	(date 1746718446181)
+@@ -0,0 +1,6 @@
++DB_USER=luzuser
++DB_HOST=172.31.43.121  # La IP privada de la base de datos
++DB_PORT=5432
++DB_NAME=luzdb
++DB_PASSWORD=hola1234
++PORT=3000
+Index: server/server.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/server.js b/server/server.js
+new file mode 100644
+--- /dev/null	(date 1746718446183)
++++ b/server/server.js	(date 1746718446183)
+@@ -0,0 +1,23 @@
++const express = require('express');
++const pool = require('./db');
++require('dotenv').config();
++
++const app = express();
++const PORT = process.env.PORT || 3000;
++
++app.use(express.json()); // Para parsear JSON
++
++// Ruta de prueba para ver si se conecta a la base de datos
++app.get('/test-db', async (req, res) => {
++    try {
++        const result = await pool.query('SELECT NOW()');
++        res.json(result.rows[0]);
++    } catch (err) {
++        console.error('Error al conectarse a la base de datos:', err);
++        res.status(500).json({ error: 'Error al conectarse a la base de datos' });
++    }
++});
++
++app.listen(PORT, () => {
++    console.log(`Servidor escuchando en el puerto ${PORT}`);
++});
+Index: server/db.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/server/db.js b/server/db.js
+new file mode 100644
+--- /dev/null	(date 1746718446182)
++++ b/server/db.js	(date 1746718446182)
+@@ -0,0 +1,12 @@
++const { Pool } = require('pg');
++require('dotenv').config();
++
++const pool = new Pool({
++  host: process.env.DB_HOST,
++  port: process.env.DB_PORT,
++  user: process.env.DB_USER,
++  password: process.env.DB_PASSWORD,
++  database: process.env.DB_NAME,
++});
++
++module.exports=pool;
+\ No newline at end of file

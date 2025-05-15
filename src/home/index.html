@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz a la Carta</title>
+    <link rel="stylesheet" href="../../Css/HomeStyle.css">
+    <script src="../../JavaScript/main.js"></script>
+    <script src="../../JavaScript/HomeScript.js"></script>
+    <style>
+        .weather-status {
+            display: none; /* Hide all weather icons by default */
+        }
+        .weather-status.active {
+            display: block; /* Show only the active weather icon */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="auth-buttons">
+            <a href="#signup" class="auth-button signup-button">Sign Out</a>
+        </div>
+        
+        <svg class="logo" viewBox="0 0 180 70" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="90" cy="35" rx="85" ry="30" fill="white"/>
+            <text x="90" y="42" font-family="serif" font-size="28" font-style="italic" text-anchor="middle" fill="#1a3a7e">Austral</text>
+        </svg>
+        
+        <div class="healthyhomes">
+            <span class="healthy">LUZ A LA</span><span class="homes"> CARTA</span>
+        </div>
+    </div>
+    
+    <div class="location-card">
+        <div>
+            <div class="location-info">
+                <span class="location-icon">📍</span>
+                <span class="location-name">Pilar</span>
+            </div>
+            
+            <div class="temperature">
+                <div class="current-temp"></div>
+                <div class="temp-unit"></div>
+            </div>
+            
+            <div class="weather-stats">
+                <div class="temp-range"></div>
+                <div class="humidity"></div>
+            </div>
+        </div>
+
+        <div id="weather-icon-cloudy" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Multiple cloud shapes -->
+            <circle cx="45" cy="45" r="18" fill="#CCCCCC"/>
+            <circle cx="60" cy="40" r="18" fill="#CCCCCC"/>
+            <circle cx="75" cy="47" r="16" fill="#CCCCCC"/>
+            <circle cx="55" cy="55" r="17" fill="#CCCCCC"/>
+            <circle cx="35" cy="53" r="15" fill="#CCCCCC"/>
+            <!-- Bottom cloud shape -->
+            <ellipse cx="55" cy="60" rx="30" ry="12" fill="#CCCCCC"/>
+            </svg>
+            <div>Nublado</div>
+        </div>
+
+        <div id="weather-icon-sunny" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="25" fill="#FFD700"/>
+                <path d="M50 15 L50 5" stroke="#FFD700" stroke-width="4"/>
+                <path d="M50 95 L50 85" stroke="#FFD700" stroke-width="4"/>
+                <path d="M15 50 L5 50" stroke="#FFD700" stroke-width="4"/>
+                <path d="M95 50 L85 50" stroke="#FFD700" stroke-width="4"/>
+                <path d="M26 26 L19 19" stroke="#FFD700" stroke-width="4"/>
+                <path d="M74 74 L81 81" stroke="#FFD700" stroke-width="4"/>
+                <path d="M26 74 L19 81" stroke="#FFD700" stroke-width="4"/>
+                <path d="M74 26 L81 19" stroke="#FFD700" stroke-width="4"/>
+            </svg>
+            <div>Sol</div>
+        </div>
+        
+        <div id="weather-icon-partly-cloudy" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="25" fill="#FFD700"/>
+                <path d="M50 15 L50 5" stroke="#FFD700" stroke-width="4"/>
+                <path d="M50 95 L50 85" stroke="#FFD700" stroke-width="4"/>
+                <path d="M15 50 L5 50" stroke="#FFD700" stroke-width="4"/>
+                <path d="M95 50 L85 50" stroke="#FFD700" stroke-width="4"/>
+                <path d="M26 26 L19 19" stroke="#FFD700" stroke-width="4"/>
+                <path d="M74 74 L81 81" stroke="#FFD700" stroke-width="4"/>
+                <path d="M26 74 L19 81" stroke="#FFD700" stroke-width="4"/>
+                <path d="M74 26 L81 19" stroke="#FFD700" stroke-width="4"/>
+                <circle cx="70" cy="40" r="15" fill="white" opacity="0.8"/>
+                <circle cx="80" cy="50" r="15" fill="white" opacity="0.8"/>
+            </svg>
+            <div>Nubes y sol</div>
+        </div>
+        
+        <div id="weather-icon-rain" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cloud shapes -->
+                <circle cx="45" cy="35" r="18" fill="#CCCCCC"/>
+                <circle cx="60" cy="30" r="18" fill="#CCCCCC"/>
+                <circle cx="75" cy="37" r="16" fill="#CCCCCC"/>
+                <circle cx="55" cy="45" r="17" fill="#CCCCCC"/>
+                <circle cx="35" cy="43" r="15" fill="#CCCCCC"/>
+                <ellipse cx="55" cy="50" rx="30" ry="12" fill="#CCCCCC"/>
+                
+                <!-- Raindrops -->
+                <path d="M30 65 L25 80" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M40 60 L35 75" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 63 L45 78" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M60 58 L55 73" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M70 62 L65 77" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M80 60 L75 75" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <div>Lluvia</div>
+        </div>
+        
+        <div id="weather-icon-storm" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Cloud shapes -->
+                <circle cx="45" cy="35" r="18" fill="#777777"/>
+                <circle cx="60" cy="30" r="18" fill="#777777"/>
+                <circle cx="75" cy="37" r="16" fill="#777777"/>
+                <circle cx="55" cy="45" r="17" fill="#777777"/>
+                <circle cx="35" cy="43" r="15" fill="#777777"/>
+                <ellipse cx="55" cy="50" rx="30" ry="12" fill="#777777"/>
+                
+                <!-- Lightning bolts -->
+                <path d="M50 45 L45 65 L55 60 L45 85" stroke="#FFD700" stroke-width="3" fill="#FFD700"/>
+                <path d="M65 50 L60 65 L67 62 L60 75" stroke="#FFD700" stroke-width="2" fill="#FFD700"/>
+                
+                <!-- Rain drops -->
+                <path d="M30 65 L25 75" stroke="#1a75ff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M38 60 L33 70" stroke="#1a75ff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M75 62 L70 72" stroke="#1a75ff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M83 60 L78 70" stroke="#1a75ff" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>Tormenta</div>
+        </div>
+        
+        <div id="weather-icon-heavy-storm" class="weather-status">
+            <svg class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dark cloud shapes -->
+                <circle cx="45" cy="35" r="18" fill="#444444"/>
+                <circle cx="60" cy="30" r="18" fill="#444444"/>
+                <circle cx="75" cy="37" r="16" fill="#444444"/>
+                <circle cx="55" cy="45" r="17" fill="#444444"/>
+                <circle cx="35" cy="43" r="15" fill="#444444"/>
+                <ellipse cx="55" cy="50" rx="30" ry="12" fill="#444444"/>
+                
+                <!-- Multiple lightning bolts -->
+                <path d="M40 45 L35 65 L45 60 L35 85" stroke="#FFD700" stroke-width="3" fill="#FFD700"/>
+                <path d="M60 40 L55 60 L65 55 L55 75" stroke="#FFD700" stroke-width="3" fill="#FFD700"/>
+                <path d="M75 45 L70 60 L78 58 L72 70" stroke="#FFD700" stroke-width="2" fill="#FFD700"/>
+                
+                <!-- Heavy rain -->
+                <path d="M25 65 L20 80" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M32 60 L27 75" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M50 63 L45 78" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+                <path d="M85 60 L80 75" stroke="#1a75ff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            <div>Tormenta Eléctrica</div>
+        </div>
+    </div>
+    
+    <div class="devices-title">Dispositivos</div>
+    
+    <div class="devices-container">
+        <div class="device-card">
+            <div>
+                <div class="device-header">
+                    <div>
+                        <svg width="30" height="10" viewBox="0 0 30 10">
+                            <rect x="0" y="3" width="30" height="4" rx="2" fill="#DDD"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <svg width="24" height="24" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" fill="white" stroke="#999" stroke-width="2"/>
+                            <path d="M12 8 L12 12" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 12 L16 12" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="device-name">Cortina</div>
+                <div class="device-status">Cerrada</div>
+            </div>
+            
+            <div class="device-footer">
+                <div class="home-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M3 12 L12 3 L21 12" fill="none" stroke="#777" stroke-width="2"/>
+                        <path d="M5 10 L5 20 L19 20 L19 10" fill="none" stroke="#777" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="device-temp">26°C</div>
+            </div>
+        </div>
+        
+        <div class="device-card add-device">
+            <button class="add-button">+</button>
+            <div class="add-text">Añadir Dispositivo</div>
+        </div>
+    </div>
+    
+    <div class="home-preview">
+        <img src="../../Assets/" alt="" />
+    </div>
+    
+    <div class="navbar">
+        <a href="#" class="nav-item active">
+            <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M3 12 L12 3 L21 12" fill="none" stroke="#1a3a7e" stroke-width="2"/>
+                    <path d="M5 10 L5 20 L19 20 L19 10" fill="none" stroke="#1a3a7e" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="nav-text">Inicio</div>
+        </a>
+        
+        <a href="#" class="nav-item">
+            <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="#777" stroke-width="2"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="#777" stroke-width="2"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="#777" stroke-width="2"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1" fill="none" stroke="#777" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="nav-text">Escenas</div>
+        </a>
+        
+        <a href="#login" class="nav-item">
+            <div class="nav-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <circle cx="12" cy="8" r="5" fill="none" stroke="#777" stroke-width="2"/>
+                    <path d="M3 20 C3 15 7 12 12 12 C17 12 21 15 21 20" fill="none" stroke="#777" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="nav-text">Sign Out</div>
+        </a>
+    </div>
+</body>
+</html>

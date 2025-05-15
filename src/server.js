@@ -1,23 +1,57 @@
 const express = require('express');
-const pool = require('./db');
-require('dotenv').config();
+const path = require('path');
+const axios = require('axios'); // You'll need to install this: npm install axios
+const connectDB = require('./db'); // Asegúrate de tener la ruta correcta
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.use(express.json()); // Para parsear JSON
+// Conectar a la base de datos PostgreSQL
+connectDB();
 
-// Ruta de prueba para ver si se conecta a la base de datos
-app.get('/test-db', async (req, res) => {
+// Middleware para analizar JSON
+app.use(express.json());
+
+// Servir archivos estáticos
+app.use(express.static(path.join(__dirname, '../../')));
+
+// Ruta para la página principal
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../HTML/Login.html'));
+});
+
+// Ruta para la página de inicio tras login
+app.get('/home', (req, res) => {
+    res.sendFile(path.join(__dirname, '../HTML/Home.html'));
+});
+
+// API proxy para Open Meteo (para evitar problemas de CORS)
+app.get('/api/weather', async (req, res) => {
     try {
-        const result = await pool.query('SELECT NOW()');
-        res.json(result.rows[0]);
-    } catch (err) {
-        console.error('Error al conectarse a la base de datos:', err);
-        res.status(500).json({ error: 'Error al conectarse a la base de datos' });
+        const {latitude, longitude} = req.query;
+
+        // Valores predeterminados si no se proporcionan
+        const lat = latitude || -34.4587; // Pilar, Argentina
+        const lon = longitude || -58.9175;
+
+        const response = await axios.get(`https://api.open-meteo.com/v1/forecast`, {
+            params: {
+                latitude: lat,
+                longitude: lon,
+                current: 'temperature_2m,relative_humidity_2m,wind_speed_10m',
+                daily: 'temperature_2m_max,temperature_2m_min',
+                timezone: 'auto'
+            }
+        });
+
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching weather data:', error);
+        res.status(500).json({error: 'Failed to fetch weather data'});
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
+// Aquí el resto de tu configuración de Express (rutas, middlewares, etc.)
+
+app.listen(3000, () => {
+    console.log('Servidor corriendo en el puerto 3000');
 });
